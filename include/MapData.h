@@ -1,12 +1,7 @@
 
 #ifndef MAPDATA_H
 #define MAPDATA_H
-#include <fstream>
 #include <string>
-#include <iostream>
-
-
-using namespace std;
 
 class MapData
 {
@@ -20,8 +15,6 @@ class MapData
         int getMatrixSize();
 
         virtual ~MapData();
-
-    protected:
 
     private:
     fstream file;

@@ -1,6 +1,8 @@
 #include "MapData.h"
+#include <fstream>
+#include <iostream>
 
-using namespace std;
+using namespace std
 MapData::MapData(int matrixSize, string filename):inputs(nullptr)
 {
     file.open(filename,ios::in);
