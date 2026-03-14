@@ -1,4 +1,5 @@
 #include "MapData.h"
+
 using namespace std;
 MapData::MapData(int matrixSize, string filename):inputs(nullptr)
 {

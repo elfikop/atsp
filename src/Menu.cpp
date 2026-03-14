@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include "MapData.h"
 #include "BruteForce.h"
+#include "Random.h"
+#include <filesystem>
 
 using namespace std;
 
@@ -25,7 +27,7 @@ void Menu::loop(){
                 if(input_matrix!=nullptr){
                     displayAlgoSelectionMenu();
                 }else{
-                    cout<<"Blad: Najpierw wczytaj dane z pliku (Opcja 1)!"<<endl;
+                    cout<<"Error! Read the file data first!"<<endl;
                 }
                 break;
             case 3:
@@ -54,9 +56,16 @@ void Menu::displayAlgoSelectionMenu(){
             }
             break;
         }
-        case 2:
+        case 2:{
             cout<<"Random Selected - Not implemented yet"<<endl;
+            Random R;
+            if(input_matrix!=nullptr){
+                R.solve(*input_matrix);
+                cout<<"Best path cost: "<<R.getBestCost()<<endl;
+                R.printBestPath(input_matrix->getMatrixSize());
+            }
             break;
+        }
         case 3:
             cout<<"Greedy Selected - Not implemented yet"<<endl;
             break;
@@ -70,14 +79,20 @@ void Menu::displayFileInsertMenu(){
     cout<<"Insert input file name (without folder and .atsp extension):"<<endl;
     string a;
     cin>>a;
-    filename="atsp/"+a+".atsp";
+    std::filesystem::path cwd=std::filesystem::current_path();
+    cout<<"current path is: "<<std::filesystem::current_path()<<endl;
+    if (cwd.filename() == "ATSPDESKTOP")
+        filename="../atsp/atsp/"+a+".atsp";//While working on win 10 cloned repo i needed an alternate location
+    else
+        filename="atsp/"+a+".atsp"; //Linux location of input data
+
     cout<<"Insert matrix size:"<<endl;
     cin>>matrixsize;
     if(input_matrix!=nullptr){
         delete input_matrix;
     }
     input_matrix=new MapData(matrixsize,filename);
-    cout<<"Plik "<<filename<<" zostal wczytany."<<endl;
+    cout<<"File "<<filename<<" is loaded"<<endl;
 }
 
 void Menu::displayOptionsMenu(){

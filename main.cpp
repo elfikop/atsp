@@ -3,6 +3,7 @@
 #include "MapData.h"
 #include "BruteForce.h"
 #include "Menu.h"
+#include <cstdlib>
 
 using namespace std;
 
