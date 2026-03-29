@@ -1,6 +1,8 @@
 
 #include "BruteForce.h"
 #include<climits>
+#include <iostream>
+using namespace std;
 BruteForce::BruteForce():bestCost(2147483647),bestPath(nullptr),currentSize(0),counter(0)
 {
 }

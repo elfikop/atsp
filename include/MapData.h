@@ -2,6 +2,9 @@
 #ifndef MAPDATA_H
 #define MAPDATA_H
 #include <string>
+#include<fstream>
+
+using namespace std;
 
 class MapData
 {

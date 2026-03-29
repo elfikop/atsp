@@ -23,7 +23,7 @@ void Algorithm::printBestPath(int size){
     std::cout<<bestPath[0]<<std::endl;
 }
 
-int Algorithm::getBestCost(){
+int Algorithm::getBestCost() const{
     return bestCost;
 }
 

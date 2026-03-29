@@ -2,6 +2,7 @@
 #ifndef BRUTEFORCE_H
 #define BRUTEFORCE_H
 #include <MapData.h>
+using namespace std;
 
 class BruteForce
 {
